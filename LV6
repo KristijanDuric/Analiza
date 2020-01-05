@@ -1,0 +1,115 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace oop_lv6_analiza
+{
+ public partial class Kalkulator : Form
+ {
+ double x, y, rez;
+ public Kalkulator()
+ {
+ InitializeComponent();
+ }
+ private void btn_Zbrajanje_Click(object sender, EventArgs e)
+ {
+ if(!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ if (!double.TryParse(tB2.Text, out y))
+ {
+ MessageBox.Show("Krivi unos operanda 2!", "Pogreška");
+ }
+ rez = x + y;
+ }
+ private void btn_Oduzimanje_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ if (!double.TryParse(tB2.Text, out y))
+ {
+ MessageBox.Show("Krivi unos operanda 2!", "Pogreška");
+ }
+ rez = x - y;
+ }
+ private void btn_Dijeljenje_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ if (!double.TryParse(tB2.Text, out y) || y==0)
+ {
+ MessageBox.Show("Krivi unos operanda 2!", "Pogreška");
+ }
+ rez = x / y;
+ }
+ private void btn_Mnozenje_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ if (!double.TryParse(tB2.Text, out y))
+ {
+ MessageBox.Show("Krivi unos operanda 2!", "Pogreška");
+ }
+ rez = x * y;
+ }
+ private void btn_Sin_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ rez = Math.Sin(x);
+ }
+ private void btn_Cos_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ rez = Math.Cos(x);
+ }
+ private void btn_Log_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ rez = Math.Log(x);
+ }
+ private void btn_Sqrt_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ rez = Math.Sqrt(x);
+ }
+ private void btn_Exp_Click(object sender, EventArgs e)
+ {
+ if (!double.TryParse(tB1.Text, out x))
+ {
+ MessageBox.Show("Krivi unos operanda 1!", "Pogreška");
+ }
+ rez = Math.Exp(x);
+ }
+ private void btn_Calculate_Click(object sender, EventArgs e)
+ {
+ tB_Rez.Text = rez.ToString();
+ tB_Rez.Show();
+ tB1.Clear();
+ tB2.Clear();
+ }
+ }
+}
